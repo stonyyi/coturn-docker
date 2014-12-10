@@ -15,6 +15,10 @@ RUN apt-get update && \
 # copy our service
 COPY service /service
 
-EXPOSE 3478 3478/udp # TCP UDP
-EXPOSE 5349 5349/udp # TLS DTLS
+# TCP UDP
+EXPOSE 3478 3478/udp
+
+# TLS DTLS
+EXPOSE 5349 5349/udp
+
 CMD ["/bin/bash", "/service/bin/run"]
