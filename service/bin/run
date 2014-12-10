@@ -1,0 +1,16 @@
+#!/bin/bash
+
+config_dir="/service/config"
+external_ip_file="${config_dir}/external_ip"
+
+test -d ${config_dir} || mkdir -p ${config_dir}
+
+if [ ! -f "${external_ip_file}" ]; then
+  if [ -z "$EXTERNAL_IP" ]; then
+      curl -s http://icanhazip.com > ${external_ip_file}
+  else
+      echo $EXTERNAL_IP > ${external_ip_file}
+  fi
+fi
+
+exec /usr/bin/turnserver -n --log-file stdout --external-ip `cat ${external_ip_file}`
