@@ -1,6 +1,6 @@
 # coturn-docker
 
-cine.io [Docker](https://docker.com/) container that handles STUN / TURN for RTC.
+[Docker](https://docker.com/) container that handles STUN / TURN for RTC.
 
 ## Notes
 
