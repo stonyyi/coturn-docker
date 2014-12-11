@@ -13,6 +13,9 @@ if [ ! -f "${external_ip_file}" ]; then
   fi
 fi
 
+realm_args=""
+test -n "${DEFAULT_REALM}" && realm_args="-r ${DEFAULT_REALM}"
+
 redis_conn_string="hostaddr=${REDIS_HOST} port=${REDIS_PORT} password=${REDIS_PASS}"
 
-exec /usr/local/bin/turnserver -n --log-file stdout --mongo-userdb="${COTURN_MONGO_URL}" --redis-statsdb="${redis_conn_string}" --external-ip `cat ${external_ip_file}`
+exec /usr/local/bin/turnserver -n --log-file stdout -a ${realm_args} --mongo-userdb="${COTURN_MONGO_URL}" --redis-statsdb="${redis_conn_string}" --external-ip `cat ${external_ip_file}`
