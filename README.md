@@ -2,11 +2,9 @@
 
 [Docker](https://docker.com/) container that handles STUN / TURN for RTC.
 
-## Notes
+## TODO
 
-Based somewhat on: https://github.com/synctree/docker-coturn
-
-**TODO:** set up certificates for TLS / DTLS
+- handle setting up certificates for TLS / DTLS
 
 ## Usage
 
